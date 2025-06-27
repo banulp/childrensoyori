@@ -11,6 +11,8 @@ var options = [
     { value: "1,2,3", text: "1~3문답" },
     { value: "4,5", text: "4~5문답" },
     { value: "6,7,8", text: "6~8문답" },
+    { value: "9,10,11", text: "9~11문답" },
+    { value: "TOTAL", text: "TOTAL" },
 ];
 
 var selectedBibleArray = [];
