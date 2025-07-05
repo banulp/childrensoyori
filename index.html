@@ -79,7 +79,8 @@
             } else{
                blankArr += c;
             }         
-         } else if(difficulty == lineItem.l){
+         // } else if(difficulty == lineItem.l){
+         } else if(difficulty == 1 && lineItem.c != null){
             if(c != ' ' && c != ',') blankArr += quest;
             else blankArr += c;
          } else {
@@ -90,6 +91,7 @@
    }
 
    function createTable(item, divId, difficulty) {
+
       const table = document.createElement('table');
       const tbody = document.createElement('tbody');
 
@@ -115,7 +117,10 @@
 
       const span = document.createElement('span');
       span.style = "white-space: pre;";
-      span.style.color = lineItem.c;
+      span.style.color = "black";
+      if(lineItem.c != null) {
+         span.style.color = lineItem.c;
+      }
          
       const spanInnerTxt = document.createElement('span');   
       const spanInnerBlank = document.createElement('span');
@@ -140,7 +145,7 @@
       span.appendChild(spanInnerBlank); 
 
       tdLine.appendChild(span);
-      if (lineItem.b !== false) {
+      if (lineItem.b) {
          tdLine.appendChild(document.createElement('br'));
       }          
       });

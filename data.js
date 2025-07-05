@@ -4,13 +4,10 @@
    textJsonQArray.push({"num": "문1",
       "line": [
          {
-         "l": 1,
          "c": "DarkMagenta",
-         "b": false,
          "t": "누가 "
          },
          {
-         "c": "black",
          "t": "여러분을 만드셨습니까?"
          }
       ]
@@ -18,13 +15,10 @@
    textJsonAArray.push({"num": "답1",
       "line": [
          {
-         "l": 1,
          "c": "DarkMagenta",
-         "b": false,
          "t": "하나님"
          },
          {
-         "c": "black",
          "t": "께서 만드셨습니다."
          }
       ]
@@ -32,18 +26,13 @@
    textJsonQArray.push({"num": "문2",
       "line": [
          {
-         "b": false,
-         "c": "black",
          "t": "하나님은 그 밖의 "
          },
          {
-         "b": false,
          "c": "#16C47F",
-         "l": 1,
          "t": "무엇"
          },
          {
-         "c": "black",
          "t": "을 만드셨습니까?"
          }
       ]
@@ -51,18 +40,13 @@
    textJsonAArray.push({"num": "답2",
       "line": [
          {
-         "c": "black",
-         "b": false,
          "t": "하나님은 "
          },
          {
-         "b": false,
          "c": "#16C47F",
-         "l": 1,
          "t": "모든 것"
          },
          {
-         "c": "black",
          "t": "을 만드셨습니다."
          }
       ]
@@ -70,18 +54,13 @@
    textJsonQArray.push({"num": "문3",
       "line": [
          {
-         "b": false,
-         "c": "black",
          "t": "하나님은 "
          },
          {
-         "l": 1,
          "c": "FA4032",
-         "b": false,
          "t": "왜 "
          },
          {
-         "c": "black",
          "t": "여러분과 모든 것을 만드셨습니까?"
          },
       ]
@@ -89,13 +68,10 @@
    textJsonAArray.push({"num": "답3",
       "line": [
          {
-         "l": 1,
          "c": "FA4032",
-         "b": false,
          "t": "자신의 영광을 위해서"
          },
          {
-         "c": "black",
          "t": "입니다."
          }
       ]
@@ -103,24 +79,17 @@
    textJsonQArray.push({"num": "문4",
       "line": [
          {
-         "b": false,
-         "c": "black",
          "t": "여러분은 "
          },
          {
-         "l": 1,
          "c": "3B3B1A",
-         "b": false,
          "t": "어떻게 "
          },
          {
-         "l": 1,
          "c": "5459AC",
-         "b": false,
          "t": "하나님께 영광 "
          },
          {
-         "c": "black",
          "t": "을 돌릴 수 있습니까?"
          },
       ]
@@ -128,19 +97,14 @@
    textJsonAArray.push({"num": "답4",
       "line": [
          {
-         "l": 1,
          "c": "0065F8",
-         "b": false,
          "t": "그를 사랑하며 "
          },
          {
-         "l": 1,
          "c": "16C47F",
-         "b": false,
          "t": "그가 명령한 것을 행함"
          },
          {
-         "c": "black",
          "t": "으로 입니다."
          }
       ]
@@ -148,18 +112,13 @@
    textJsonQArray.push({"num": "문5",
       "line": [
          {
-         "b": false,
-         "c": "black",
          "t": "여러분은 "
          },
          {
-         "l": 1,
          "c": "16610E",
-         "b": false,
          "t": "왜 하나님께 영광"
          },
          {
-         "c": "black",
          "t": "을 돌려야 합니까?"
          },
       ]
@@ -167,19 +126,14 @@
    textJsonAArray.push({"num": "답5",
       "line": [
          {
-         "l": 1,
          "c": "00CAFF",
-         "b": false,
          "t": "그가 우리를 만드셨고 "
          },
          {
-         "l": 1,
          "c": "52357B",
-         "b": false,
          "t": "또 우리를 돌보시기 때문"
          },
          {
-         "c": "black",
          "t": "입니다."
          }
       ]
@@ -187,7 +141,6 @@
    textJsonQArray.push({"num": "문6",
       "line": [
          {
-         "c": "black",
          "t": "하나 이상의 하나님들이 계십니까?"
          },
       ]
@@ -195,13 +148,10 @@
    textJsonAArray.push({"num": "답6",
       "line": [
          {
-         "l": 1,
          "c": "5409DA",
-         "b": false,
          "t": "오직 한 분 하나님"
          },
          {
-         "c": "black",
          "t": "이 계십니다."
          }
       ]
@@ -210,23 +160,17 @@
       "line": [
          {
          "l": 1,   
-         "b": false,
          "c": "129990",
          "t": "이 한 분 하나님"
          },
          {
-         "c": "black",
-         "b": false,
          "t": "은 "
          },
          {
-         "l": 1,
          "c": "CB0404",
-         "b": false,
          "t": "몇 인격"
          },
          {
-         "c": "black",
          "t": "으로 계십니까?"
          },
       ]
@@ -234,13 +178,10 @@
    textJsonAArray.push({"num": "답7",
       "line": [
          {
-         "l": 1,
          "c": "0065F8",
-         "b": false,
          "t": "세 인격"
          },
          {
-         "c": "black",
          "t": "으로 계십니다."
          }
       ]
@@ -248,8 +189,6 @@
    textJsonQArray.push({"num": "문8",
       "line": [
          {
-         "b": false,
-         "c": "black",
          "t": "그들이 누구이십니까?"
          },
       ]
@@ -257,119 +196,203 @@
    textJsonAArray.push({"num": "답8",
       "line": [
          {
-         "l": 1,
          "c": "00CAFF",
-         "b": false,
          "t": "아버지"
          },
          {
-         "b": false,
-         "c": "black",
          "t": "와 "
          },
          {
-         "l": 1,
          "c": "FF0B55",
-         "b": false,
          "t": "아들"
          },
          {
-         "b": false,
-         "c": "black",
          "t": "과 "
          },
          {
-         "l": 1,
          "c": "8F87F1",
-         "b": false,
          "t": "성령"
          },
          {
-         "c": "black",
          "t": "이십니다."
          }
       ]
    });       
-   textJsonQArray.push({"num": "문9","line":[{"c": "black","t": "하나님은 어떤 분이십니까?"}]});
+   textJsonQArray.push({"num": "문9","line":[{"t": "하나님은 어떤 분이십니까?"}]});
    textJsonAArray.push({"num": "답9","line":[
       {
-         "c": "black"
-         ,"t": "하나님은 "
-         ,"b": false
+         "t": "하나님은 "
       },
       {
          "c": "FF0B55"
          ,"t": "영"
-         ,"b": false
-         ,"l": 1
       },
       {
-         "c": "black"
-         ,"t": "이시며"
+         "t": "이시며"
+         , "b": true
       },
       {
-         "c": "black"
-         ,"t": "그에게는 "
-         ,"b": false
+         "t": "그에게는 "
       }
       ,
       {
          "c": "00CAFF"
          ,"t": "사람과 같은 몸"
-         ,"b": false
-         ,"l": 1
       }
       ,
       {
-         "c": "black"
-         ,"t": "이 없으십니다."
+         "t": "이 없으십니다."
       }
    ]});
-   textJsonQArray.push({"num": "문10","line":[{"c": "black","t": "하나님은 어디에 계십니까?"}]});
+   textJsonQArray.push({"num": "문10","line":[{"t": "하나님은 어디에 계십니까?"}]});
    textJsonAArray.push({"num": "답10","line":[
       {
-         "c": "black"
-         ,"t": "하나님은 "
-         ,"b": false
+         "t": "하나님은 "
       },
       {
          "c": "8F87F1"
          ,"t": "어디에나 "
-         ,"b": false
-         ,"l": 1
       },
       {
-         "c": "black"
-         ,"t": "계십니다."
+         "t": "계십니다."
       }
    ]});
-   textJsonQArray.push({"num": "문11","line":[{"c": "black","t": "여러분은 하나님을 볼 수 있습니까?"}]});
+   textJsonQArray.push({"num": "문11","line":[{"t": "여러분은 하나님을 볼 수 있습니까?"}]});
    textJsonAArray.push({"num": "답11","line":[
       {
          "c": "00CAFF"
          ,"t": "아니오, "
-         ,"b": false
       },
       {
          "c": "5409DA"
          ,"t": "우리는 하나님을 볼 수 없습니다."
+         ,"b": true
       },
       {
          "c": "16C47F"
          ,"t": "그러나 그는 항상 우리를 보십니다."
-         ,"l": 1
       }
    ]});
 
 
-textJsonQArray.push({"num": "문12","line":[{"c": "black","t": "하나님은 모든 것들을 아십니까?"}]});
-textJsonAArray.push({"num": "답12","line":[{"c": "black","t": "예, 아무 것도 하나님께 숨길 수 없습니다."}]});
-textJsonQArray.push({"num": "문13","line":[{"c": "black","t": "하나님은 모든 것을 하실 수 있습니까?"}]});
-textJsonAArray.push({"num": "답13","line":[{"c": "black","t": "예, 하나님은 그의 모든 거룩한 뜻을 행하실 수 있습니다."}]});
-textJsonQArray.push({"num": "문14","line":[{"c": "black","t": "여러분은 어디에서 하나님을 사랑하고 순종하는 법을 배웁니까?"}]});
-textJsonAArray.push({"num": "답14","line":[{"c": "black","t": "성경에서만 배웁니다."}]});
-textJsonQArray.push({"num": "문15","line":[{"c": "black","t": "누가 성경을 썼습니까?"}]});
-textJsonAArray.push({"num": "답15","line":[{"c": "black","t": "성령의 가르치심을 받은 거룩한 사람들이 썼습니다."}]});
+textJsonQArray.push({"num": "문12","line":[
+      {
+         "t": "하나님은 "
+      },
+      {
+         "c": "FF2DD1"
+         ,"t": "모든 것들"
+      },
+      {
+         "t": "을 아십니까?"
+      }
+]});
+textJsonAArray.push({"num": "답12","line":[
+      {
+         "c": "00CAFF"
+         ,"t": "예, "
+      },
+      {
+         "t": "아무 것도 하나님께 "
+      },
+      {
+         "c": "16C47F"
+         ,"t": "하나님께 숨길 수 없습니다."
+      }
+   ]});
+
+textJsonQArray.push({"num": "문13","line":[
+      {
+         "t": "하나님은 "
+      },
+      {
+         "c": "FF2DD1"
+         ,"t": "모든 것들"
+      },
+      {
+         "t": "하실 수 있습니까?"
+      }
+]});
+
+textJsonAArray.push({"num": "답13","line":[
+      {
+         "c": "00CAFF"
+         ,"t": "예, "
+      },
+      {
+         "t": "하나님은 "
+      },
+      {
+         "c": "5409DA"
+         ,"t": "그의 모든 거룩한 뜻"
+      },
+      {
+         "t": "을 행하실 수 있습니다."
+      }
+   ]});
+
+textJsonQArray.push({"num": "문14","line":[
+      {
+         "t": "여러분은 "
+      },
+      {
+         "c": "00CAFF"
+         ,"t": "어디"
+      },
+      {
+        "t": "에서 ",
+        "b": true
+      },
+      {
+         "c": "0D5EA6"
+         ,"t": "하나님을 사랑하고 순종하는 법"
+      }
+      ,
+      {
+         "t": "을 배웁니까?"
+      }
+   ]});
+textJsonAArray.push({"num": "답14","line":[
+      {
+         "c": "5409DA"
+         ,"t": "성경"
+      },
+      {
+         "t": "에서만 배웁니다."
+      }
+   ]});
+
+textJsonQArray.push({"num": "문15","line":[
+      {
+         "c": "00CAFF"
+         ,"t": "누가 "
+      },
+      {
+         "t": "성경을 썼습니까?"
+      }
+]});
+
+textJsonAArray.push({"num": "답15","line":[
+      {
+         "c": "B13BFF"
+         ,"t": "성령의 가르치심"
+      },
+      {
+       "t": "을 받은 "
+      },
+      {
+         "c": "347433"
+         ,"t": "거룩한 사람"
+      },
+      {
+         "t": "들이 썼습니다."
+      }
+   ]});
+
+
+
+
+
 textJsonQArray.push({"num": "문16","line":[{"c": "black","t": "누가 우리의 처음 조상입니까?"}]});
 textJsonAArray.push({"num": "답16","line":[{"c": "black","t": "아담과 하와 입니다."}]});
 textJsonQArray.push({"num": "문17","line":[{"c": "black","t": "우리의 처음 조상은 무엇으로 만들어졌습니까?"}]});
