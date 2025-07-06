@@ -293,7 +293,7 @@ textJsonAArray.push({"num": "답12","line":[
          ,"t": "예, "
       },
       {
-         "t": "아무 것도 하나님께 "
+         "t": "아무 것도 "
       },
       {
          "c": "16C47F"
@@ -310,7 +310,7 @@ textJsonQArray.push({"num": "문13","line":[
          ,"t": "모든 것들"
       },
       {
-         "t": "하실 수 있습니까?"
+         "t": "을 하실 수 있습니까?"
       }
 ]});
 
@@ -389,22 +389,21 @@ textJsonAArray.push({"num": "답15","line":[
       }
    ]});
 
-
-
-
-
 textJsonQArray.push({"num": "문16","line":[{"c": "black","t": "누가 우리의 처음 조상입니까?"}]});
 textJsonAArray.push({"num": "답16","line":[{"c": "black","t": "아담과 하와 입니다."}]});
 textJsonQArray.push({"num": "문17","line":[{"c": "black","t": "우리의 처음 조상은 무엇으로 만들어졌습니까?"}]});
 textJsonAArray.push({"num": "답17","line":[{"c": "black","t": "하나님은 아담의 몸을 흙으로 만드셨고 하와를 아담의 몸으로 만드셨습니다."}]});
+
 textJsonQArray.push({"num": "문18","line":[{"c": "black","t": "하나님은 아담과 하와에게 몸 외에 무엇을 주셨습니까?"}]});
 textJsonAArray.push({"num": "답18","line":[{"c": "black","t": "하나님은 그들에게 죽을 수 없는 영혼들을 주셨습니다."}]});
 textJsonQArray.push({"num": "문19","line":[{"c": "black","t": "여러분에게는 몸뿐만 아니라 영혼도 있습니까?"}]});
 textJsonAArray.push({"num": "답19","line":[{"c": "black","t": "예, 우리에게는 죽을 수 없는 영혼도 있습니다."}]});
+
 textJsonQArray.push({"num": "문20","line":[{"c": "black","t": "여러분은 여러분에게 영혼이 있다는 것을 어떻게 압니까?"}]});
 textJsonAArray.push({"num": "답20","line":[{"c": "black","t": "성경이 저에게 그렇게 말씀하기 때문에 압니다."}]});
 textJsonQArray.push({"num": "문21","line":[{"c": "black","t": "하나님은 아담과 하와를 어떤 상태로 만드셨습니까?"}]});
 textJsonAArray.push({"num": "답21","line":[{"c": "black","t": "그는 그들을 거룩하고 행복하게 만드셨습니다."}]});
+
 textJsonQArray.push({"num": "문22","line":[{"c": "black","t": "언약이 무엇입니까?"}]});
 textJsonAArray.push({"num": "답22","line":[{"c": "black","t": "두 사람이나 그 이상의 사람들 간의 약속입니다."}]});
 textJsonQArray.push({"num": "문23","line":[{"c": "black","t": "하나님은 아담과 무슨 언약을 맺으셨습니까?"}]});
