@@ -14,6 +14,8 @@ var options = [
     { value: "9,10,11", text: "9~11문답" },
     { value: "12,13", text: "12~13문답" },
     { value: "14,15", text: "14~15문답" },
+    { value: "16,17", text: "16~17문답" },
+    { value: "18,19", text: "18~19문답" },
     { value: "TOTAL", text: "TOTAL" },
 ];
 
