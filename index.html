@@ -66,20 +66,11 @@
       var charArr = Array.from(txt);
       var blankArr = '';
 
-      var maxFlag = 0;
       charArr.forEach((c, idx) => {
 
          if(difficulty == 100){
             if(c != ' ' && c != ',') blankArr += quest;
             else blankArr += c;
-         } else if(difficulty == 99){
-            if (lineItem.l != null ) {
-               if(c != ' ' && c != ',') blankArr += quest;
-               else blankArr += c;
-            } else{
-               blankArr += c;
-            }         
-         // } else if(difficulty == lineItem.l){
          } else if(difficulty == 1 && lineItem.c != null){
             if(c != ' ' && c != ',') blankArr += quest;
             else blankArr += c;
@@ -131,7 +122,7 @@
       spanInnerTxt.textContent = lineItem.t;
       spanInnerBlank.textContent = makeBlank(lineItem, difficulty);
 
-      if (Math.random() < difficulty) {      
+      if (spanInnerTxt.textContent !== spanInnerBlank.textContent) {      
          spanInnerTxt.style = "display: none";
          spanInnerBlank.style = "display: inline-block";
       } 
@@ -160,21 +151,50 @@
       document.getElementById(divId).appendChild(table);
     }    
 
-   function reloadDifficulty(difficulty){
-      clearTables();
-       for(var idx = 0; idx < selectedBibleArray.length; idx++){
-         createTable(textJsonQArray[selectedBibleArray[idx]-1], "txttableQ"+idx, difficulty);
-         createTable(textJsonAArray[selectedBibleArray[idx]-1], "txttableA"+idx, difficulty);
-      };
-
+   function clearTables() {
+      const container = document.getElementById('catechism-container');
+      if (container) {
+         container.innerHTML = '';
+      }
    }
 
-   function clearTables() {
-      const maxCount = 3; // Q0~Q2, A0~A2 총 3세트 기준
-      for (let i = 0; i < maxCount; i++) {
-         document.getElementById("txttableQ" + i).replaceChildren();
-         document.getElementById("txttableA" + i).replaceChildren();
-      }
+   function displayCatechism(difficulty = 0) {
+      clearTables();
+
+      if (!selectedBibleArray || selectedBibleArray.length === 0) return;
+
+      const container = document.getElementById('catechism-container');
+
+      selectedBibleArray.forEach((bibleNum, displayIndex) => {
+         const item = catechism[bibleNum - 1];
+         if (item) {
+            const qDivId = `txttableQ${displayIndex}`;
+            const aDivId = `txttableA${displayIndex}`;
+
+            const qDiv = document.createElement('div');
+            qDiv.id = qDivId;
+            const aDiv = document.createElement('div');
+            aDiv.id = aDivId;
+            const spacer1 = document.createElement('div');
+            spacer1.innerHTML = '&nbsp;';
+            const spacer2 = document.createElement('div');
+            spacer2.innerHTML = '&nbsp;';
+
+            container.appendChild(qDiv);
+            container.appendChild(aDiv);
+            container.appendChild(spacer1);
+            container.appendChild(spacer2);
+
+            const qItem = { num: `문${item.num}`, line: item.q };
+            const aItem = { num: `답${item.num}`, line: item.a };
+            createTable(qItem, qDivId, difficulty);
+            createTable(aItem, aDivId, difficulty);
+         }
+      });
+   }
+
+   function reloadDifficulty(difficulty){
+      displayCatechism(difficulty);
    }
 
    </script>
@@ -185,21 +205,10 @@
       <!-- <div id="biblemenu"> -->
          <a class="button-like" href="javascript:reloadDifficulty(0);">순한 맛</a>&nbsp;&nbsp;
          <a class="button-like" href="javascript:reloadDifficulty(1);">약간 매운 맛</a>&nbsp;&nbsp;
-         <!-- <a class="button-like" href="javascript:reloadDifficulty(2);">매운 맛</a>&nbsp;&nbsp;
-         <a class="button-like" href="javascript:reloadDifficulty(99);">아주 매운 맛</a>&nbsp;&nbsp; -->
          <a class="button-like" href="javascript:reloadDifficulty(100);">천국 맛</a>&nbsp;&nbsp;
       </div>
 
-      <div id="txttableQ0"></div>
-      <div id="txttableA0"></div>
-      <div>&nbsp</div>
-      <div>&nbsp</div>
-      <div id="txttableQ1"></div>
-      <div id="txttableA1"></div>
-      <div>&nbsp</div>
-      <div>&nbsp</div>
-      <div id="txttableQ2"></div>
-      <div id="txttableA2"></div>
+      <div id="catechism-container"></div>
 
    </body>
 </html>

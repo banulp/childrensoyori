@@ -16,20 +16,26 @@ var options = [
     { value: "14,15", text: "14~15문답" },
     { value: "16,17", text: "16~17문답" },
     { value: "18,19", text: "18~19문답" },
+    { value: "20,21,22,23,24", text: "20~24문답" },
     { value: "TOTAL", text: "TOTAL" },
 ];
 
 var selectedBibleArray = [];
 selectElement.onchange = function () {
-    clearTables();
-   var selectedValue = this.value;
-   selectedBibleArray = selectedValue.split(',').map(Number);
+    var selectedValue = this.value;
+    if (!selectedValue) {
+        selectedBibleArray = [];
+        clearTables();
+        return;
+    }
 
-   for(var idx = 0; idx < selectedBibleArray.length; idx++){
-      createTable(textJsonQArray[selectedBibleArray[idx]-1], "txttableQ"+idx, 0);
-      createTable(textJsonAArray[selectedBibleArray[idx]-1], "txttableA"+idx, 0);
-   };
+    if (selectedValue === "TOTAL") {
+        selectedBibleArray = Array.from({length: catechism.length}, (_, i) => i + 1);
+    } else {
+        selectedBibleArray = selectedValue.split(',').map(Number).filter(n => !isNaN(n));
+    }
 
+    displayCatechism(0);
 };
 
 // 옵션 추가
