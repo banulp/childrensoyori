@@ -194,6 +194,17 @@
       .site-footer a:hover {
           text-decoration: underline;
       }
+
+      @media (max-width: 850px) {
+          .top-nav-bar {
+              justify-content: center; /* Center the groups */
+              flex-wrap: wrap;
+              padding-bottom: 15px;
+          }
+          .nav-group, .difficulty-group {
+              margin-top: 10px;
+          }
+      }
    </style>
    <script type="text/javascript" src="data.js"></script>
    <script type="text/javascript">
@@ -371,13 +382,26 @@
 
     <footer class="site-footer">
         <p>Copyright © 2024. All Rights Reserved. This work may be freely reproduced and distributed.</p>
-        <p>판교 열린하늘문교회 유년부</p>
+        <p>문의: 판교 열린하늘문교회 유년부</p>
         <p>
             <a href="https://www.osg.or.kr/" target="_blank">교회 홈페이지</a> | 
-            <a href="https://www.youtube.com/@openskygatechurch" target="_blank">YouTube 채널</a> | 
-            <a href="mailto:banulp@gmail.com">개발문의</a></p>
+            <a href="https://www.youtube.com/@openskygatechurch" target="_blank">YouTube 채널</a>
         </p>
+        <p><a href="mailto:banulp@gmail.com">개발문의</a></p>
     </footer>
+
+<script>
+function adjustBodyPadding() {
+    const navBar = document.getElementById('biblemenu');
+    if (navBar) {
+        const navBarHeight = navBar.offsetHeight;
+        document.body.style.paddingTop = navBarHeight + 'px';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', adjustBodyPadding);
+window.addEventListener('resize', adjustBodyPadding);
+</script>
 
    </body>
 </html>
