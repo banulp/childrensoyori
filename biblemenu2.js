@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var defaultOption = document.createElement("option");
     defaultOption.value = "";
-    defaultOption.text = "-- 주제별 선택 --";
+    defaultOption.text = "주제별";
     selectElement.appendChild(defaultOption);
 
     var options = [
@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof updateNavButtons === 'function') {
             updateNavButtons();
         }
-    };
+        closeMobileNav();
+    }
 
     // HTML에 컨트롤 추가
     const navGroup = document.getElementById('nav-group-right');

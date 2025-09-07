@@ -2,6 +2,8 @@
    <header>
     <title>웨스트민스터 소요리문답</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="어린이 소요리문답 (웨스트민스터 소요리문답) 전체 보기. 신앙 교육을 위한 145개 질문과 답변을 통해 아이들과 함께 성경의 핵심 진리를 배워보세요.">
     <meta name="keywords" content="어린이 소요리문답, 소요리문답, 웨스트민스터 소요리문답, 신앙교육, 기독교, 성경공부, 자녀교육, catechism, shorter catechism">
@@ -28,17 +30,17 @@
       /* General Body and Font */
       @font-face {
          font-family: MaruBuri;
-         font-weight: bold;
-         src: url("MaruBuri-Bold.otf") format("opentype");
+         font-weight: normal; /* Changed to normal */
+         src: url("MaruBuri-Light.otf") format("opentype"); /* Changed font file */
       }
       body {
          font-family: 'MaruBuri';
          margin: 0;
-         padding-top: 80px; /* Add padding to prevent content from being hidden by the fixed nav bar */
+         padding-top: 70px; /* Set for desktop nav bar height */
          background-color: #fdfdfd;
       }
 
-      /* New Navigation Bar Styles */
+      /* --- DESKTOP NAVIGATION STYLES --- */
       .top-nav-bar {
           position: fixed;
           top: 0;
@@ -48,19 +50,195 @@
           border-bottom: 1px solid #e0e0e0;
           box-shadow: 0 2px 5px rgba(0,0,0,0.05);
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          padding: 10px 25px;
+          padding: 0 25px;
+          height: 70px;
           box-sizing: border-box;
           z-index: 1000;
+          justify-content: space-between; /* Distribute items */
       }
-      .nav-group, .difficulty-group {
+      .site-title {
+          font-size: 22px;
+          font-weight: bold;
+          color: #333;
+          margin: 0; /* Reset margin */
+      }
+      #total-view-button { /* Specific style for the new button */
+          margin-right: 20px; /* Space between button and title */
+      }
+      .main-nav {
+          display: flex; /* Show on desktop */
+          align-items: center;
+          gap: 20px;
+          margin-left: auto; /* Push to the right */
+      }
+            .nav-group, .difficulty-group {
           display: flex;
           align-items: center;
           gap: 12px;
       }
 
-      /* General Button & Select Styles */
+      .mobile-nav-toggle { /* Added globally */
+          display: none;
+      }
+      
+
+      /* --- MOBILE NAVIGATION STYLES --- */
+      @media (max-width: 950px) { /* Increased breakpoint for more space */
+          .top-nav-bar {
+              justify-content: flex-start; /* Align hamburger to the left */
+          }
+          .site-title {
+              font-size: 18px;
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              margin: 0; /* Reset margin for mobile centering */
+          }
+          #total-view-button {
+              display: none; /* Hide on mobile, it will be in the slide-out menu */
+          }
+          .main-nav {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 60%;
+              max-width: 250px;
+              height: 100%;
+              background-color: #ffffff;
+              box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+              flex-direction: column;
+              align-items: stretch; /* Make items full-width */
+              padding: 80px 20px 20px;
+              gap: 25px;
+              transform: translateX(-100%);
+              transition: transform 0.3s ease-in-out;
+              z-index: 1001;
+              overflow-y: auto;
+              display: flex; /* Ensure it's a flex container */
+          }
+          .mobile-nav-label {
+              display: block !important;
+              position: relative;
+              width: 30px;
+              height: 22px;
+              cursor: pointer;
+              z-index: 1002;
+              background-color: transparent !important;
+              background-color: transparent !important;
+          }
+          .mobile-nav-toggle {
+              display: none;
+          }
+          .mobile-nav-label span, 
+          .mobile-nav-label span::before, 
+          .mobile-nav-label span::after {
+              content: '';
+              display: block !important;
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              background-color: #333;
+              border-radius: 2px;
+              transition: all 0.3s ease;
+          }
+          .mobile-nav-label span::before { top: -9px; }
+          .mobile-nav-label span { top: 9px; }
+          .mobile-nav-label span::after { top: 9px; }
+
+          .mobile-nav-toggle:checked ~ .main-nav { transform: translateX(0); }
+          .mobile-nav-toggle:checked ~ .page-overlay { display: block; }
+          .mobile-nav-toggle:checked ~ .site-title { opacity: 0; } /* Hide title when nav is open */
+
+          .mobile-nav-toggle:checked + .mobile-nav-label span { background-color: transparent; }
+          .mobile-nav-toggle:checked + .mobile-nav-label span::before { transform: rotate(45deg); top: 0; }
+          .mobile-nav-toggle:checked + .mobile-nav-label span::after { transform: rotate(-45deg); top: 0; }
+
+          .page-overlay {
+              position: fixed;
+              top: 0; left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0,0,0,0.5);
+              z-index: 1000;
+              display: none;
+          }
+          .nav-group { /* Keep nav-group as column */
+              flex-direction: column;
+              width: 100%;
+              gap: 15px;
+          }
+          .difficulty-group { /* Make difficulty-group row */
+              flex-direction: row;
+              flex-wrap: wrap; /* Allow wrapping if needed */
+              justify-content: center; /* Center the buttons */
+              width: 100%; /* Keep width 100% for the container */
+              gap: 10px; /* Adjust gap for better fit */
+          }
+          .nav-button, .select-dropdown { /* Keep nav-button and select-dropdown as 100% width */
+              width: 100%;
+              text-align: center;
+              font-size: 16px;
+              padding: 12px;
+          }
+          #total-view-button-mobile {
+              width: 80%; /* Reduce width for mobile total view button */
+              margin: 0 auto; /* Center the button */
+          }
+          .difficulty-button { /* Adjust difficulty-button width */
+              width: auto; /* Allow buttons to size based on content */
+              flex-grow: 1; /* Allow them to grow to fill space, but not force 100% */
+              max-width: calc(33% - 10px); /* Roughly 3 per line with gap */
+              text-align: center;
+              font-size: 16px;
+              padding: 12px;
+          }
+          tbody td { font-size: 16px; } /* Reverted to 16px for new font test */
+          .site-footer { font-size: 13px; }
+          .marker.marker-is-q::before,
+          .marker.marker-is-a::before {
+              content: ''; /* Hide the "문" or "답" on mobile */
+          }
+      }
+
+      .difficulty-controls-container {
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+          margin-top: 0px; /* To push it below the fixed nav bar */
+          position: sticky;
+          top: 70px; /* Stick just below the top nav bar */
+          background-color: #fdfdfd; /* Ensure it covers content when sticky */
+          z-index: 999; /* Ensure it's above other content but below top nav */
+      }
+      @media (max-width: 950px) {
+          .difficulty-controls-container {
+              display: flex; /* Ensure it's a flex container */
+              flex-direction: row; /* Make the container itself a row */
+              flex-wrap: wrap; /* Allow wrapping if buttons don't fit */
+              justify-content: center; /* Center the buttons */
+              align-items: center; /* Center vertically if needed */
+              padding: 15px;
+          }
+          .difficulty-controls-container .difficulty-group {
+              /* This group is now a child of a row container, so it should also be a row */
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 5px;
+              width: 100%; /* Ensure it takes full width of its parent */
+          }
+          .difficulty-controls-container .difficulty-group .difficulty-button {
+              flex: 1 1 auto;
+              min-width: 80px;
+              max-width: calc(33.33% - 10px);
+              box-sizing: border-box;
+              font-size: 14px;
+              padding: 8px 5px;
+          }
+      }
+
+      /* --- GENERAL CONTROL & CONTENT STYLES --- */
       .nav-button, .difficulty-button, .select-dropdown {
           border: 1px solid #d0d0d0;
           background-color: #f9f9f9;
@@ -75,137 +253,42 @@
           text-decoration: none;
           white-space: nowrap;
       }
-      .nav-button:hover, .difficulty-button:hover, .select-dropdown:hover {
-          background-color: #f0f0f0;
-          border-color: #b0b0b0;
-      }
-      .nav-button:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-          background-color: #f9f9f9;
-          border-color: #d0d0d0;
-      }
+      .nav-button:hover, .difficulty-button:hover, .select-dropdown:hover { background-color: #f0f0f0; border-color: #b0b0b0; }
+      .nav-button:disabled { opacity: 0.5; cursor: not-allowed; }
+      .difficulty-button.active { background-color: #007bff; color: white; border-color: #007bff; }
+      .js-tooltip { position: absolute; background-color: #fffbe5; color: #5d5d5d; border: 1px solid #f0e9c3; padding: 10px 15px; border-radius: 8px; font-size: 14px; font-weight: bold; white-space: nowrap; box-shadow: 0 3px 6px rgba(0,0,0,0.1); z-index: 1010; opacity: 1; transition: opacity 0.3s ease-in-out; }
+      .js-tooltip.fade-out { opacity: 0; }
+      .select-dropdown { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%_209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 12px center; background-size: 10px; padding-right: 35px; }
+      .marker-container { display: flex; align-items: center; justify-content: center; padding-top: 10px; }
+      .marker { width: auto; padding: 6px 15px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; border: 2px solid; }
+      .marker-q { color: #4a90e2; border-color: #4a90e2; }
+      .marker-a { color: #50e3c2; border-color: #50e3c2; }
+      .marker-is-q::before { content: '문 '; }
+      .marker-is-a::before { content: '답 '; }
+      table { width: 100%; table-layout: fixed; }
+      tbody td { font-size: 250%; font-weight: bold; }
+      td { padding: 10px; vertical-align: top; }
+      td:nth-child(1) { width: 10%; }
+      td:nth-child(2) { width: 90%; }
+      .site-footer { text-align: center; padding: 20px 0; margin-top: 40px; background-color: #f2f2f2; color: #666; font-size: 14px; border-top: 1px solid #e0e0e0; }
+      .site-footer p { margin: 5px 0; }
+      .site-footer a { color: #007bff; text-decoration: none; }
+      .site-footer a:hover { text-decoration: underline; }
 
-      /* Difficulty Button Specifics */
-      .difficulty-button.active {
-          background-color: #007bff;
-          color: white;
-          border-color: #007bff;
-      }
-      .difficulty-button.active:hover {
-          background-color: #0069d9;
-          border-color: #0062cc;
-      }
+/* Visibility for Total View Buttons */
+#total-view-button-mobile {
+    display: none; /* Hidden on desktop */
+}
 
-      /* Tooltip Styles */
-      .js-tooltip {
-          position: absolute;
-          background-color: #fffbe5;
-          color: #5d5d5d;
-          border: 1px solid #f0e9c3;
-          padding: 10px 15px;
-          border-radius: 8px;
-          font-size: 14px;
-          font-weight: bold;
-          white-space: nowrap;
-          box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-          z-index: 1010; /* Ensure it's above other elements */
-          opacity: 1;
-          transition: opacity 0.3s ease-in-out;
-      }
-      .js-tooltip.fade-out {
-          opacity: 0;
-      }
-
-      /* Select Dropdown Specifics */
-      .select-dropdown {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%_209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-          background-repeat: no-repeat;
-          background-position: right 12px center;
-          background-size: 10px;
-          padding-right: 35px; /* Make space for the arrow */
-      }
-      
-      /* Main Content Table Styles */
-      .marker-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding-top: 10px;
-      }
-      .marker {
-          width: auto;
-          padding: 6px 15px;
-          border-radius: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-          font-weight: bold;
-          border: 2px solid;
-      }
-      .marker-q {
-          color: #4a90e2;
-          border-color: #4a90e2;
-      }
-      .marker-a {
-          color: #50e3c2;
-          border-color: #50e3c2;
-      }
-      table {
-         width: 100%;
-         table-layout: fixed;
-      }
-      tbody td {
-         font-size: 250%;
-         font-weight: bold;
-      }
-      td {
-         padding: 10px;
-         vertical-align: top;
-      }
-      td:nth-child(1) {
-         width: 10%;
-      }
-      td:nth-child(2) {
-         width: 90%;
-      }
-
-      /* Footer Styles */
-      .site-footer {
-          text-align: center;
-          padding: 20px 0;
-          margin-top: 40px;
-          background-color: #f2f2f2;
-          color: #666;
-          font-size: 14px;
-          border-top: 1px solid #e0e0e0;
-      }
-      .site-footer p {
-          margin: 5px 0;
-      }
-      .site-footer a {
-          color: #007bff;
-          text-decoration: none;
-      }
-      .site-footer a:hover {
-          text-decoration: underline;
-      }
-
-      @media (max-width: 850px) {
-          .top-nav-bar {
-              justify-content: center; /* Center the groups */
-              flex-wrap: wrap;
-              padding-bottom: 15px;
-          }
-          .nav-group, .difficulty-group {
-              margin-top: 10px;
-          }
-      }
-   </style>
+@media (max-width: 950px) {
+    #total-view-button { /* The one next to the title */
+        display: none; /* Hidden on mobile */
+    }
+    #total-view-button-mobile {
+        display: block; /* Shown on mobile */
+    }
+}
+    </style>
    <script type="text/javascript" src="data.js"></script>
    <script type="text/javascript">
    var selectedBibleArray = [];
@@ -246,7 +329,8 @@
       const markerCircle = document.createElement('div');
       markerCircle.className = 'marker';
       markerCircle.classList.add(item.type === 'q' ? 'marker-q' : 'marker-a');
-      markerCircle.textContent = (item.type === 'q' ? '문' : '답') + ' ' + item.num;
+      markerCircle.textContent = item.num; // Only the number
+      markerCircle.classList.add(item.type === 'q' ? 'marker-is-q' : 'marker-is-a');
 
       markerContainer.appendChild(markerCircle);
       tdNum.appendChild(markerContainer);
@@ -361,16 +445,54 @@
       displayCatechism(difficulty);
    }
 
+   function displayAllCatechism() {
+        // Reset both dropdowns
+        var selectElement = document.getElementById('bible-select');
+        if (selectElement) {
+            selectElement.selectedIndex = 0;
+        }
+        var otherSelect = document.getElementById('bible-select-2');
+        if (otherSelect) {
+            otherSelect.selectedIndex = 0;
+        }
+
+        selectedBibleArray = Array.from({length: catechism.length}, (_, i) => i + 1);
+        
+        const activeDifficultyButton = document.querySelector('.difficulty-button.active');
+        const difficulty = activeDifficultyButton ? activeDifficultyButton.id.split('-')[1] : 0;
+        displayCatechism(difficulty);
+        
+        // Update nav buttons if the function exists (from biblemenu.js)
+        if (typeof updateNavButtons === 'function') {
+            updateNavButtons();
+        }
+    }
+
    </script>
    </header>
    <body style="">
     <div id="biblemenu" class="top-nav-bar">
-        <div id="nav-group-left" class="nav-group">
-            <!-- Navigation buttons and select will be inserted here by biblemenu.js -->
-        </div>
-        <div id="nav-group-right" class="nav-group">
-            <!-- New select will be inserted here -->
-        </div>
+        
+        <a id="total-view-button" class="nav-button" href="javascript:displayAllCatechism();">전체</a>
+        <h1 class="site-title">어린이 소요리문답</h1> <!-- Centered -->
+        <input type="checkbox" id="mobile-nav-toggle" class="mobile-nav-toggle">
+        <label for="mobile-nav-toggle" class="mobile-nav-label">
+            <span></span>
+        </label>
+        
+        <nav class="main-nav"> <!-- This is the slide-out menu -->
+            <a id="total-view-button-mobile" class="nav-button" href="javascript:displayAllCatechism(); closeMobileNav();">전체</a>
+            <div id="nav-group-left" class="nav-group">
+                <!-- Navigation buttons and select will be inserted here by biblemenu.js -->
+            </div>
+            <div id="nav-group-right" class="nav-group">
+                <!-- New select will be inserted here -->
+            </div>
+        </nav>
+    </div>
+    
+
+    <div class="difficulty-controls-container">
         <div class="difficulty-group">
             <a id="diff-0" class="difficulty-button active" href="javascript:reloadDifficulty(0);">순한 맛</a>
             <a id="diff-1" class="difficulty-button" href="javascript:reloadDifficulty(1);" data-tooltip="색상 빈칸을 클릭하면 정답이 보입니다.">약간 매운 맛</a>
@@ -382,12 +504,12 @@
 
     <footer class="site-footer">
         <p>Copyright © 2024. All Rights Reserved. This work may be freely reproduced and distributed.</p>
-        <p>문의: 판교 열린하늘문교회 유년부</p>
+        <p>열린하늘문교회 유년부</p>
         <p>
             <a href="https://www.osg.or.kr/" target="_blank">교회 홈페이지</a> | 
-            <a href="https://www.youtube.com/@openskygatechurch" target="_blank">YouTube 채널</a>
+            <a href="https://www.youtube.com/@openskygatechurch" target="_blank">YouTube 채널</a> | 
+            <a href="mailto:banulp@gmail.com">개발문의</a>
         </p>
-        <p><a href="mailto:banulp@gmail.com">개발문의</a></p>
     </footer>
 
 <script>
@@ -396,6 +518,13 @@ function adjustBodyPadding() {
     if (navBar) {
         const navBarHeight = navBar.offsetHeight;
         document.body.style.paddingTop = navBarHeight + 'px';
+    }
+}
+
+function closeMobileNav() {
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    if (mobileNavToggle) {
+        mobileNavToggle.checked = false;
     }
 }
 

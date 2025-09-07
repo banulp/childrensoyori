@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var defaultOption = document.createElement("option");
     defaultOption.value = "";
-    defaultOption.text = "-- 문답 선택 --";
+    defaultOption.text = "문답";
     selectElement.appendChild(defaultOption);
 
     var options = [
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const difficulty = activeDifficultyButton ? activeDifficultyButton.id.split('-')[1] : 0;
         displayCatechism(difficulty);
         updateNavButtons();
+        closeMobileNav();
     };
 
     // 버튼 생성 함수
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // "이전" 버튼
-    var prevBtn = createNavButton("← 이전", true);
+    var prevBtn = createNavButton("←", true);
     prevBtn.onclick = function () {
         if (selectElement.selectedIndex > 1) { // 0은 기본 안내 옵션
             selectElement.selectedIndex = selectElement.selectedIndex - 1;
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // "다음" 버튼
-    var nextBtn = createNavButton("다음 →", true);
+    var nextBtn = createNavButton("→", true);
     nextBtn.onclick = function () {
         if (selectElement.selectedIndex < selectElement.options.length - 1) {
             selectElement.selectedIndex = selectElement.selectedIndex + 1;
@@ -79,21 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateNavButtons();
     };
 
-    // "전체 보기" 버튼
-    var totalBtn = createNavButton("전체 보기", false);
-    totalBtn.onclick = function () {
-        selectElement.selectedIndex = 0; // 드롭다운 선택 해제
-        var otherSelect = document.getElementById('bible-select-2');
-        if (otherSelect) {
-            otherSelect.selectedIndex = 0;
-        }
-        selectedBibleArray = Array.from({length: catechism.length}, (_, i) => i + 1);
-        
-        const activeDifficultyButton = document.querySelector('.difficulty-button.active');
-        const difficulty = activeDifficultyButton ? activeDifficultyButton.id.split('-')[1] : 0;
-        displayCatechism(difficulty);
-        updateNavButtons(); // 이전/다음 버튼 비활성화
-    };
+    
 
     function updateNavButtons() {
         const currentIndex = selectElement.selectedIndex;
@@ -105,10 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // HTML에 컨트롤 추가
     const navGroup = document.getElementById('nav-group-left');
     if (navGroup) {
-        navGroup.appendChild(prevBtn);
+        // 모바일 뷰에서는 이전/다음 버튼을 추가하지 않음
+        if (window.innerWidth > 950) {
+            navGroup.appendChild(prevBtn);
+        }
         navGroup.appendChild(selectElement);
-        navGroup.appendChild(nextBtn);
-        navGroup.appendChild(totalBtn);
+        if (window.innerWidth > 950) {
+            navGroup.appendChild(nextBtn);
+        }
     }
 
     // 초기 버튼 상태 설정
