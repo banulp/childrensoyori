@@ -1,27 +1,31 @@
 <html>
    <header>
     <title>웨스트민스터 소요리문답</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="어린이 소요리문답 (웨스트민스터 소요리문답) 전체 보기. 신앙 교육을 위한 145개 질문과 답변을 통해 아이들과 함께 성경의 핵심 진리를 배워보세요.">
+    <meta name="keywords" content="어린이 소요리문답, 소요리문답, 웨스트민스터 소요리문답, 신앙교육, 기독교, 성경공부, 자녀교육, catechism, shorter catechism">
+    <meta name="author" content="banulp">
+
+    <!-- Open Graph Meta Tags (for social media sharing) -->
+    <meta property="og:title" content="어린이 소요리문답">
+    <meta property="og:description" content="어린이 소요리문답 (웨스트민스터 소요리문답) 전체 보기. 신앙 교육을 위한 145개 질문과 답변을 통해 아이들과 함께 성경의 핵심 진리를 배워보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://banulp.github.io/childrensoyori/">
+    <meta property="og:site_name" content="어린이 소요리문답">
+    <!-- <meta property="og:image" content="[대표 이미지 URL]"> -->
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="어린이 소요리문답">
+    <meta name="twitter:description" content="어린이 소요리문답 (웨스트민스터 소요리문답) 전체 보기. 신앙 교육을 위한 145개 질문과 답변을 통해 아이들과 함께 성경의 핵심 진리를 배워보세요.">
+    <!-- <meta name="twitter:image" content="[대표 이미지 URL]"> -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
-      .button-like {
-            display: inline-block; /* 버튼처럼 영역을 차지하게 함 */
-            padding: 2px 15px; /* 내부 여백으로 버튼 크기 조정 */
-            color: white; /* 텍스트 색상 */
-            background-color: #62696f; /* 버튼 배경색 (파란색) */
-            border-radius: 15px; /* 모서리를 둥글게 처리 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-            text-decoration: none; /* 밑줄 제거 */
-            cursor: pointer; /* 버튼 클릭 가능한 느낌 */
-            transition: all 0.3s ease; /* 애니메이션 효과 추가 */
-        }
-
-        .button-like:hover {
-            background-color: black; /* 마우스 오버 시 색상 변경 */
-        }
-
-        .button-like:active {
-            background-color: black; /* 클릭 시 색상 변경 */
-        }      
+      /* General Body and Font */
       @font-face {
          font-family: MaruBuri;
          font-weight: bold;
@@ -30,6 +34,126 @@
       body {
          font-family: 'MaruBuri';
          margin: 0;
+         padding-top: 80px; /* Add padding to prevent content from being hidden by the fixed nav bar */
+         background-color: #fdfdfd;
+      }
+
+      /* New Navigation Bar Styles */
+      .top-nav-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #ffffff;
+          border-bottom: 1px solid #e0e0e0;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 25px;
+          box-sizing: border-box;
+          z-index: 1000;
+      }
+      .nav-group, .difficulty-group {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+      }
+
+      /* General Button & Select Styles */
+      .nav-button, .difficulty-button, .select-dropdown {
+          border: 1px solid #d0d0d0;
+          background-color: #f9f9f9;
+          color: #333;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-family: 'MaruBuri';
+          font-size: 15px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          white-space: nowrap;
+      }
+      .nav-button:hover, .difficulty-button:hover, .select-dropdown:hover {
+          background-color: #f0f0f0;
+          border-color: #b0b0b0;
+      }
+      .nav-button:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          background-color: #f9f9f9;
+          border-color: #d0d0d0;
+      }
+
+      /* Difficulty Button Specifics */
+      .difficulty-button.active {
+          background-color: #007bff;
+          color: white;
+          border-color: #007bff;
+      }
+      .difficulty-button.active:hover {
+          background-color: #0069d9;
+          border-color: #0062cc;
+      }
+
+      /* Tooltip Styles */
+      .js-tooltip {
+          position: absolute;
+          background-color: #fffbe5;
+          color: #5d5d5d;
+          border: 1px solid #f0e9c3;
+          padding: 10px 15px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: bold;
+          white-space: nowrap;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+          z-index: 1010; /* Ensure it's above other elements */
+          opacity: 1;
+          transition: opacity 0.3s ease-in-out;
+      }
+      .js-tooltip.fade-out {
+          opacity: 0;
+      }
+
+      /* Select Dropdown Specifics */
+      .select-dropdown {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%_209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+          background-repeat: no-repeat;
+          background-position: right 12px center;
+          background-size: 10px;
+          padding-right: 35px; /* Make space for the arrow */
+      }
+      
+      /* Main Content Table Styles */
+      .marker-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: 10px;
+      }
+      .marker {
+          width: auto;
+          padding: 6px 15px;
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          font-weight: bold;
+          border: 2px solid;
+      }
+      .marker-q {
+          color: #4a90e2;
+          border-color: #4a90e2;
+      }
+      .marker-a {
+          color: #50e3c2;
+          border-color: #50e3c2;
       }
       table {
          width: 100%;
@@ -41,24 +165,39 @@
       }
       td {
          padding: 10px;
+         vertical-align: top;
       }
       td:nth-child(1) {
-         width: 5%;
+         width: 10%;
       }
       td:nth-child(2) {
-         width: 95%;
+         width: 90%;
       }
-      .bnum {
-         text-align: right;
-         color: gray;
-         text-decoration: underline;
-         text-underline-offset: 14px;
-         vertical-align: top;
-         font-size: 140%;
+
+      /* Footer Styles */
+      .site-footer {
+          text-align: center;
+          padding: 20px 0;
+          margin-top: 40px;
+          background-color: #f2f2f2;
+          color: #666;
+          font-size: 14px;
+          border-top: 1px solid #e0e0e0;
+      }
+      .site-footer p {
+          margin: 5px 0;
+      }
+      .site-footer a {
+          color: #007bff;
+          text-decoration: none;
+      }
+      .site-footer a:hover {
+          text-decoration: underline;
       }
    </style>
    <script type="text/javascript" src="data.js"></script>
    <script type="text/javascript">
+   var selectedBibleArray = [];
    var quest = '□';   
    function makeBlank(lineItem, difficulty) {
       txt = lineItem.t;
@@ -88,10 +227,18 @@
 
       const tr = document.createElement('tr');
 
-      // Add num column
+      // Add marker column
       const tdNum = document.createElement('td');
-      tdNum.classList.add('bnum');
-      tdNum.textContent = item.num;
+      const markerContainer = document.createElement('div');
+      markerContainer.className = 'marker-container';
+
+      const markerCircle = document.createElement('div');
+      markerCircle.className = 'marker';
+      markerCircle.classList.add(item.type === 'q' ? 'marker-q' : 'marker-a');
+      markerCircle.textContent = (item.type === 'q' ? '문' : '답') + ' ' + item.num;
+
+      markerContainer.appendChild(markerCircle);
+      tdNum.appendChild(markerContainer);
       tr.appendChild(tdNum);
 
       // Add line column
@@ -185,8 +332,8 @@
             container.appendChild(spacer1);
             container.appendChild(spacer2);
 
-            const qItem = { num: `문${item.num}`, line: item.q };
-            const aItem = { num: `답${item.num}`, line: item.a };
+            const qItem = { type: 'q', num: item.num, line: item.q };
+            const aItem = { type: 'a', num: item.num, line: item.a };
             createTable(qItem, qDivId, difficulty);
             createTable(aItem, aDivId, difficulty);
          }
@@ -194,22 +341,84 @@
    }
 
    function reloadDifficulty(difficulty){
+      // Update active class on buttons
+      document.querySelectorAll('.difficulty-button').forEach(btn => {
+         btn.classList.remove('active');
+      });
+      document.getElementById(`diff-${difficulty}`).classList.add('active');
+      
       displayCatechism(difficulty);
    }
 
    </script>
    </header>
-   <body style="padding: 100px">           
+   <body style="">
+    <div id="biblemenu" class="top-nav-bar">
+        <div id="nav-group-left" class="nav-group">
+            <!-- Navigation buttons and select will be inserted here by biblemenu.js -->
+        </div>
+        <div id="nav-group-right" class="nav-group">
+            <!-- New select will be inserted here -->
+        </div>
+        <div class="difficulty-group">
+            <a id="diff-0" class="difficulty-button active" href="javascript:reloadDifficulty(0);">순한 맛</a>
+            <a id="diff-1" class="difficulty-button" href="javascript:reloadDifficulty(1);" data-tooltip="색상 빈칸을 클릭하면 정답이 보입니다.">약간 매운 맛</a>
+            <a id="diff-100" class="difficulty-button" href="javascript:reloadDifficulty(100);" data-tooltip="전체 빈칸을 클릭하면 정답이 보입니다.">천국 맛</a>
+        </div>
+    </div>
 
-      <div id="biblemenu" style="padding: 10px;position: fixed;top: 0;background: white;width: 100%;">
-      <!-- <div id="biblemenu"> -->
-         <a class="button-like" href="javascript:reloadDifficulty(0);">순한 맛</a>&nbsp;&nbsp;
-         <a class="button-like" href="javascript:reloadDifficulty(1);">약간 매운 맛</a>&nbsp;&nbsp;
-         <a class="button-like" href="javascript:reloadDifficulty(100);">천국 맛</a>&nbsp;&nbsp;
-      </div>
+    <div id="catechism-container" style="padding: 20px;"></div>
 
-      <div id="catechism-container"></div>
+    <footer class="site-footer">
+        <p>Copyright © 2024. All Rights Reserved. This work may be freely reproduced and distributed.</p>
+        <p>판교 열린하늘문교회 유년부</p>
+        <p>
+            <a href="https://www.osg.or.kr/" target="_blank">교회 홈페이지</a> | 
+            <a href="https://www.youtube.com/@openskygatechurch" target="_blank">YouTube 채널</a> | 
+            <a href="mailto:banulp@gmail.com">개발문의</a></p>
+        </p>
+    </footer>
 
    </body>
 </html>
 <script type="text/javascript" src="biblemenu.js"></script>
+<script type="text/javascript" src="biblemenu2.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttonsWithTooltips = document.querySelectorAll('[data-tooltip]');
+
+    buttonsWithTooltips.forEach(button => {
+        button.addEventListener('mouseover', (event) => {
+            const tooltipText = button.getAttribute('data-tooltip');
+            if (!tooltipText) return;
+
+            // Create tooltip element
+            const tooltip = document.createElement('div');
+            tooltip.className = 'js-tooltip';
+            tooltip.textContent = tooltipText;
+            document.body.appendChild(tooltip);
+
+            // Position tooltip
+            const btnRect = button.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            
+            // Center the tooltip below the button
+            let tooltipLeft = btnRect.left + (btnRect.width / 2) - (tooltipRect.width / 2);
+            let tooltipTop = btnRect.bottom + 8; // 8px gap
+
+            tooltip.style.left = `${tooltipLeft}px`;
+            tooltip.style.top = `${tooltipTop}px`;
+
+            // Auto-hide after 1 second
+            setTimeout(() => {
+                tooltip.classList.add('fade-out');
+                // Remove from DOM after fade-out animation ends
+                tooltip.addEventListener('transitionend', () => {
+                    tooltip.remove();
+                });
+            }, 1000);
+
+        }, { once: true }); // This makes the event fire only once
+    });
+});
+</script>
