@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { value: "14,15", text: "14~15문답" },
         { value: "16,17", text: "16~17문답" },
         { value: "18,19", text: "18~19문답" },
-        { value: "20,21,22,23,24", text: "20~24문답" }
+        { value: "20,21", text: "20~21문답" },
+        { value: "22,23", text: "22~23문답" }
     ];
 
     // 옵션 추가
