@@ -24,7 +24,7 @@
     <!-- <meta name="twitter:image" content="[대표 이미지 URL]"> -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg?v=2">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
       /* General Body and Font */
@@ -268,7 +268,7 @@
       table { width: 100%; table-layout: fixed; }
       tbody td { font-size: 250%; font-weight: bold; }
       td { padding: 10px; vertical-align: top; }
-      td:nth-child(1) { width: 10%; }
+      td:nth-child(1) { width: 10%; cursor: pointer; }
       td:nth-child(2) { width: 90%; }
       .site-footer { text-align: center; padding: 20px 0; margin-top: 40px; background-color: #f2f2f2; color: #666; font-size: 14px; border-top: 1px solid #e0e0e0; }
       .site-footer p { margin: 5px 0; }
@@ -334,7 +334,6 @@
 
       markerContainer.appendChild(markerCircle);
       tdNum.appendChild(markerContainer);
-      tr.appendChild(tdNum);
 
       // Add line column
       const tdLine = document.createElement('td');
@@ -382,6 +381,20 @@
          tdLine.appendChild(document.createElement('br'));
       }          
       });
+      
+      tdNum.addEventListener('click', () => {
+        const blankSpans = tdLine.querySelectorAll('span[id*="blank_"]');
+        blankSpans.forEach(blankSpan => {
+            const txtId = blankSpan.id.replace('blank_', 'txt_');
+            const txtSpan = document.getElementById(txtId);
+            if (txtSpan) {
+                txtSpan.style.display = 'inline-block';
+                blankSpan.style.display = 'none';
+            }
+        });
+      });
+
+      tr.appendChild(tdNum);
       tr.appendChild(tdLine);
 
       tbody.appendChild(tr);
